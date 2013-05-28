@@ -20,7 +20,7 @@ clean:
 	rm -f core.*
 
 install: $(LIB)
-	cp $(LIB) `php-config --extension-dir`
+	install -m 0755 $(LIB) `php-config --extension-dir`
 
 obj/%.o : %.cpp
 	$(CXX) -o $@ -c $< $(CXXFLAGS) $(INCLUDE)
