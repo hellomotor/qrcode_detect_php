@@ -1,9 +1,10 @@
 CC=gcc
 CXX=g++
 CFLAGS=-fPIC
+ZXING=../..
 CXXFLAGS=-ansi -pedantic -O0 -g3 -ggdb -Wall -Wextra -Werror -fPIC
 INCLUDE =$(shell php-config --includes)
-INCLUDE +=-I. -I../core/src
+INCLUDE +=-I. -I$(ZXING)/cpp/core/src
 
 LIB=qrcode_detect.so
 OBJS=obj/qrcode_detect_impl.o obj/qrcode_detect_wrap.o obj/ImageReaderSource.o obj/jpgd.o obj/lodepng.o
