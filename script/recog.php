@@ -2,8 +2,8 @@
 include "qrcode_detect.php";
 if ($argc == 2) {
 	$filename = $argv[1];
-	//from_file($filename);
-	from_memory($filename);
+	from_file($filename);
+	//from_memory($filename);
 }
 
 function from_file($filename)
@@ -11,9 +11,9 @@ function from_file($filename)
 	$error = 0;
 	$result = qrcode_detect::single_detect_file($filename, &$error);
 	if (!$result)
-		printf("Detect from file failed, error code %d\n", $error);
+		fprintf(STDERR, "Detect from file failed, error code %d\n", $error);
 	else 
-		echo $result."\n";
+		fprintf(STDOUT, "%s\n", $result);
 }
 
 function from_memory($filename)

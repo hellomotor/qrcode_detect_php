@@ -30,6 +30,6 @@ PHP_RINIT_FUNCTION(qrcode_detect);
 PHP_RSHUTDOWN_FUNCTION(qrcode_detect);
 PHP_MINFO_FUNCTION(qrcode_detect);
 
-ZEND_NAMED_FUNCTION(_wrap_single_detect_file);
-ZEND_NAMED_FUNCTION(_wrap_single_detect_memory);
+ZEND_NAMED_FUNCTION(_wrap_single_decode_file);
+ZEND_NAMED_FUNCTION(_wrap_single_decode_memory);
 #endif /* PHP_QRCODE_DETECT_H */

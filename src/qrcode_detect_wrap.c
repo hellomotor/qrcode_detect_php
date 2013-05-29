@@ -1048,9 +1048,9 @@ extern "C" {
 #endif
 
 
-    extern const char *single_detect_file(const char *fileName, int *REF);
+    extern const char *single_decode_file(const char *fileName, int pure_barcode, int *REF);
 
-    extern const char *single_detect_memory(const char *ptr, int size, int imageType, int *REF);
+    extern const char *single_decode_memory(const char *ptr, int size, int imageType, int pure_barcode, int *REF);
 
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
@@ -1075,15 +1075,16 @@ static swig_cast_info *swig_cast_initial[] = {
 static int le_swig__p_int=0; /* handle for _p_int */
 /* end vdecl subsection */
 /* wrapper section */
-ZEND_NAMED_FUNCTION(_wrap_single_detect_file) {
+ZEND_NAMED_FUNCTION(_wrap_single_decode_file) {
   char *arg1 = (char *) 0 ;
-  int *arg2 = (int *) 0 ;
-  int tmp2 ;
-  zval **args[2];
+  int arg2 ;
+  int *arg3 = (int *) 0 ;
+  int tmp3 ;
+  zval **args[3];
   char *result = 0 ;
   
   SWIG_ResetError();
-  if(ZEND_NUM_ARGS() != 2 || zend_get_parameters_array_ex(2, args) != SUCCESS) {
+  if(ZEND_NUM_ARGS() != 3 || zend_get_parameters_array_ex(3, args) != SUCCESS) {
     WRONG_PARAM_COUNT;
   }
   
@@ -1098,21 +1099,27 @@ ZEND_NAMED_FUNCTION(_wrap_single_detect_file) {
   /*@SWIG@*/;
   
   
+  /*@SWIG:/usr/share/swig/1.3.40/php/utils.i,7,CONVERT_INT_IN@*/
+  convert_to_long_ex(args[1]);
+  arg2 = (int) Z_LVAL_PP(args[1]);
+  /*@SWIG@*/;
+  
+  
   /* First Check for SWIG wrapped type */
-  if ( ZVAL_IS_NULL( *args[1] ) ) {
-    arg2 = 0;
-  } else if ( PZVAL_IS_REF( *args[1] ) ) {
+  if ( ZVAL_IS_NULL( *args[2] ) ) {
+    arg3 = 0;
+  } else if ( PZVAL_IS_REF( *args[2] ) ) {
     /* Not swig wrapped type, so we check if it's a PHP reference type */
     /*@SWIG:/usr/share/swig/1.3.40/php/utils.i,7,CONVERT_INT_IN@*/
-    convert_to_long_ex(args[1]);
-    tmp2 = (int) Z_LVAL_PP(args[1]);
+    convert_to_long_ex(args[2]);
+    tmp3 = (int) Z_LVAL_PP(args[2]);
     /*@SWIG@*/;
-    arg2 = &tmp2;
+    arg3 = &tmp3;
   } else {
-    SWIG_PHP_Error( E_ERROR, SWIG_PHP_Arg_Error_Msg(2, Expected a reference) );
+    SWIG_PHP_Error( E_ERROR, SWIG_PHP_Arg_Error_Msg(3, Expected a reference) );
   }
   
-  result = (char *)single_detect_file((char const *)arg1,arg2);
+  result = (char *)single_decode_file((char const *)arg1,arg2,arg3);
   {
     if(!result) {
       ZVAL_NULL(return_value);
@@ -1120,24 +1127,25 @@ ZEND_NAMED_FUNCTION(_wrap_single_detect_file) {
       ZVAL_STRING(return_value, (char *)result, 1);
     }
   }
-  ZVAL_LONG(*args[1], tmp2 );
+  ZVAL_LONG(*args[2], tmp3 );
   return;
 fail:
   zend_error(SWIG_ErrorCode(),"%s",SWIG_ErrorMsg());
 }
 
 
-ZEND_NAMED_FUNCTION(_wrap_single_detect_memory) {
+ZEND_NAMED_FUNCTION(_wrap_single_decode_memory) {
   char *arg1 = (char *) 0 ;
   int arg2 ;
   int arg3 ;
-  int *arg4 = (int *) 0 ;
-  int tmp4 ;
-  zval **args[4];
+  int arg4 ;
+  int *arg5 = (int *) 0 ;
+  int tmp5 ;
+  zval **args[5];
   char *result = 0 ;
   
   SWIG_ResetError();
-  if(ZEND_NUM_ARGS() != 4 || zend_get_parameters_array_ex(4, args) != SUCCESS) {
+  if(ZEND_NUM_ARGS() != 5 || zend_get_parameters_array_ex(5, args) != SUCCESS) {
     WRONG_PARAM_COUNT;
   }
   
@@ -1164,21 +1172,27 @@ ZEND_NAMED_FUNCTION(_wrap_single_detect_memory) {
   /*@SWIG@*/;
   
   
+  /*@SWIG:/usr/share/swig/1.3.40/php/utils.i,7,CONVERT_INT_IN@*/
+  convert_to_long_ex(args[3]);
+  arg4 = (int) Z_LVAL_PP(args[3]);
+  /*@SWIG@*/;
+  
+  
   /* First Check for SWIG wrapped type */
-  if ( ZVAL_IS_NULL( *args[3] ) ) {
-    arg4 = 0;
-  } else if ( PZVAL_IS_REF( *args[3] ) ) {
+  if ( ZVAL_IS_NULL( *args[4] ) ) {
+    arg5 = 0;
+  } else if ( PZVAL_IS_REF( *args[4] ) ) {
     /* Not swig wrapped type, so we check if it's a PHP reference type */
     /*@SWIG:/usr/share/swig/1.3.40/php/utils.i,7,CONVERT_INT_IN@*/
-    convert_to_long_ex(args[3]);
-    tmp4 = (int) Z_LVAL_PP(args[3]);
+    convert_to_long_ex(args[4]);
+    tmp5 = (int) Z_LVAL_PP(args[4]);
     /*@SWIG@*/;
-    arg4 = &tmp4;
+    arg5 = &tmp5;
   } else {
-    SWIG_PHP_Error( E_ERROR, SWIG_PHP_Arg_Error_Msg(4, Expected a reference) );
+    SWIG_PHP_Error( E_ERROR, SWIG_PHP_Arg_Error_Msg(5, Expected a reference) );
   }
   
-  result = (char *)single_detect_memory((char const *)arg1,arg2,arg3,arg4);
+  result = (char *)single_decode_memory((char const *)arg1,arg2,arg3,arg4,arg5);
   {
     if(!result) {
       ZVAL_NULL(return_value);
@@ -1186,7 +1200,7 @@ ZEND_NAMED_FUNCTION(_wrap_single_detect_memory) {
       ZVAL_STRING(return_value, (char *)result, 1);
     }
   }
-  ZVAL_LONG(*args[3], tmp4 );
+  ZVAL_LONG(*args[4], tmp5 );
   return;
 fail:
   zend_error(SWIG_ErrorCode(),"%s",SWIG_ErrorMsg());
@@ -1204,8 +1218,8 @@ static ZEND_RSRC_DTOR_FUNC(_wrap_destroy_p_int) {
 /* entry subsection */
 /* Every non-class user visible function must have an entry here */
 static zend_function_entry qrcode_detect_functions[] = {
- SWIG_ZEND_NAMED_FE(single_detect_file,_wrap_single_detect_file,NULL)
- SWIG_ZEND_NAMED_FE(single_detect_memory,_wrap_single_detect_memory,NULL)
+ SWIG_ZEND_NAMED_FE(single_decode_file,_wrap_single_decode_file,NULL)
+ SWIG_ZEND_NAMED_FE(single_decode_memory,_wrap_single_decode_memory,NULL)
  SWIG_ZEND_NAMED_FE(swig_qrcode_detect_alter_newobject,_wrap_swig_qrcode_detect_alter_newobject,NULL)
  SWIG_ZEND_NAMED_FE(swig_qrcode_detect_get_newobject,_wrap_swig_qrcode_detect_get_newobject,NULL)
 {NULL, NULL, NULL}
